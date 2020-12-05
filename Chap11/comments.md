@@ -60,7 +60,7 @@ No comments
     tooMany (Goats n) = n > 42
   instance TooMany Cows where
     tooMany (Cows n) = n > 131
-  ```
+```
 
 - On the other hand, what about the case where we want to
   reuse the typeclass instances of the type our newtype contains?
