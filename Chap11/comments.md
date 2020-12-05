@@ -77,3 +77,20 @@ No comments
   instance to be the same *except* for the one we want to change.
 
 - FlexibleInstances
+
+## 11.10 Sum types
+
+- pg 630:
+- myNumba = Numba (-129)
+  <interactive>:4:19: warning: [-Woverflowed-literals]
+      Literal -129 is out of the Int8 range -128..127
+
+  THIS IS DIFFERENT FROM WHAT THE BOOK SAYS
+
+- myNumba = Numba (negate 128)
+
+  THAT WHAT THE BOOK SAYS
+  No need for NegativeLiterals extension anylonger.
+
+## 11.11 Product types
+
