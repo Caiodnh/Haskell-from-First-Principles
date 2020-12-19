@@ -1,11 +1,17 @@
-filterSen :: (a -> Bool) -> [a] -> [a]
-filterSen p []     = []
-filterSen p (x:xs) = if p x
-                     then x : filterSen xs
-                     else filterSen xs
+{-# LANGUAGE AllowAmbiguousTypes, ScopedTypeVariables, TypeApplications #-}
 
-filterSen' :: (a -> Bool) -> [a] -> [a]
-filterSen' p   = foldr f []
-  where f x xs = if p x
-                 then x : xs
-                 else xs
+module SimpleComposition where
+
+class Intermediate a where
+    f :: a -> Int
+    g :: Char -> a
+
+h :: forall a. Intermediate a => Char -> Int
+h = f . g @a
+
+instance Intermediate () where
+    f _ = 0
+    g _ = ()
+
+h' :: Char -> Int
+h' = h @()
